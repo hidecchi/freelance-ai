@@ -87,6 +87,103 @@ p {
   border-radius: 4px;
 }
 
+html:not(.is-unlocked) {
+  overflow: hidden;
+}
+
+html:not(.is-unlocked) body > :not(.gate) {
+  display: none;
+}
+
+.gate {
+  display: none;
+}
+
+html:not(.is-unlocked) .gate {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  padding: 24px;
+  background:
+    radial-gradient(520px 280px at 85% 12%, rgba(107, 140, 255, 0.18), transparent 65%),
+    radial-gradient(360px 220px at 10% 90%, rgba(107, 140, 255, 0.1), transparent 60%),
+    linear-gradient(160deg, #1a1f2c 0%, #242c40 100%);
+}
+
+.gate-card {
+  width: min(420px, 100%);
+  padding: 36px 32px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+}
+
+.gate-kicker {
+  margin-bottom: 10px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.gate-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.gate-lede {
+  margin: 10px 0 24px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.gate-label {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.gate-label-text {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gate-card input {
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: var(--bg-soft);
+  padding: 13px 15px;
+  font-weight: 400;
+}
+
+.gate-card input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(79, 116, 232, 0.14);
+}
+
+.gate-error {
+  display: none;
+  margin: 0 0 14px;
+  color: #c45c5c;
+  font-size: 13px;
+}
+
+.gate-card.is-invalid .gate-error {
+  display: block;
+}
+
+.gate-card .btn {
+  width: 100%;
+}
+
 .skip-link {
   position: absolute;
   left: 12px;

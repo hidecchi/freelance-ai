@@ -27,13 +27,45 @@ const {
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap"
       rel="stylesheet"
     />
-    <script is:inline>document.documentElement.classList.add("js");</script>
+    <style is:inline>
+      html:not(.is-unlocked) { overflow: hidden; }
+      html:not(.is-unlocked) body > :not(.gate) { display: none; }
+    </style>
+    <script is:inline>
+      document.documentElement.classList.add("js");
+      try {
+        if (sessionStorage.getItem("fa-unlocked") === "1") {
+          document.documentElement.classList.add("is-unlocked");
+        }
+      } catch {}
+    </script>
   </head>
   <body>
+    <div class="gate" data-gate>
+      <form class="gate-card" data-gate-form>
+        <p class="gate-kicker">Freelance × AI</p>
+        <h1 class="gate-title">閲覧パスワード</h1>
+        <p class="gate-lede">公開前のため、パスワードを入力してください。</p>
+        <label class="gate-label">
+          <span class="gate-label-text">パスワード</span>
+          <input
+            data-gate-input
+            type="password"
+            name="password"
+            autocomplete="current-password"
+            required
+          />
+        </label>
+        <p class="gate-error">パスワードが違います。</p>
+        <button class="btn btn-primary" type="submit">入る</button>
+      </form>
+    </div>
     <a class="skip-link" href="#main">本文へスキップ</a>
     <slot />
     <script>
+      import { initGate } from "../scripts/gate";
       import { initUI } from "../scripts/ui";
+      initGate();
       initUI();
     </script>
   </body>
