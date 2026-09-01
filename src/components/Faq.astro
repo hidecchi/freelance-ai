@@ -1,0 +1,125 @@
+---
+const items = [
+  {
+    q: "まだ要件が固まっていなくても相談できますか？",
+    a: "できます。作りたい理由と制約があれば、最初の会話で範囲を一緒に切ります。",
+  },
+  {
+    q: "遠方やフルリモートでも進められますか？",
+    a: "原則オンラインです。短い同期と、いつでも見られる進捗で進めます。",
+  },
+  {
+    q: "AIに実装を任せるのですか？",
+    a: "人間と二人三脚で実装を行う部分もあれば、既存の実装の横展開等は大部分AIに任せます。\n生成されたコードの判断と納品の責任は担当者が持ちます。",
+  },
+  {
+    q: "小さな修正だけでも頼めますか？",
+    a: "内容によります。まずは可否と概算をお返しします。",
+  },
+];
+---
+
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="sec-head" data-reveal>
+      <p class="kicker">FAQ</p>
+      <h2 class="section-title">よくあるご質問</h2>
+    </div>
+    <div class="list">
+      {items.map((item, i) => (
+        <details data-reveal style={`--delay:${i * 60}ms`}>
+          <summary>
+            <span class="q-mark" aria-hidden="true">Q</span>
+            {item.q}
+            <span class="chev" aria-hidden="true">
+              <svg viewBox="0 0 12 8" fill="none">
+                <path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </span>
+          </summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    background: var(--bg-soft);
+  }
+
+  .list {
+    display: grid;
+    gap: 12px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  details {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fff;
+    padding: 0 22px;
+    transition: box-shadow 0.25s ease;
+  }
+
+  details[open] {
+    box-shadow: var(--shadow-sm);
+  }
+
+  summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.98rem;
+    padding: 18px 0;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .q-mark {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--bg-blue);
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .chev {
+    margin-left: auto;
+    color: var(--faint);
+    transition: transform 0.25s var(--ease);
+  }
+
+  .chev svg {
+    width: 12px;
+  }
+
+  details[open] .chev {
+    transform: rotate(180deg);
+  }
+
+  details p {
+    margin: 0 0 18px 42px;
+    color: var(--muted);
+    font-size: 0.94rem;
+    white-space: pre-wrap;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chev {
+      transition: none;
+    }
+  }
+</style>

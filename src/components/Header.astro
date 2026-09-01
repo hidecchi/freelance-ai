@@ -1,0 +1,25 @@
+---
+const links = [
+  { href: "#services", label: "サービス" },
+  { href: "#about", label: "開発者について" },
+  { href: "#faq", label: "FAQ" },
+];
+---
+
+<header class="site-header" data-header>
+  <div class="header-inner">
+    <a class="logo" href="#top" aria-label="Freelance × AI トップ">
+      <span class="logo-mark" aria-hidden="true">F</span>
+      <span class="logo-text">
+        <span class="logo-name">Freelance × AI</span>
+      </span>
+    </a>
+    <nav class="nav" data-nav aria-label="ページ内リンク">
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    </nav>
+    <a class="btn btn-primary header-cta" href="#contact">無料で相談する</a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-label="メニューを開く">
+      <span></span>
+    </button>
+  </div>
+</header>

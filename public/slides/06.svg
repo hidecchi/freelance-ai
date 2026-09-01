@@ -1,0 +1,13 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="640" height="800" viewBox="0 0 640 800">
+  <defs>
+    <linearGradient id="g" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="800" fill="url(#g)"/>
+  <circle cx="240" cy="320" r="48" fill="rgba(255,255,255,0.25)"/>
+  <circle cx="400" cy="320" r="48" fill="rgba(255,255,255,0.25)"/>
+  <path d="M200 430 C240 500 400 500 440 430" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="12" stroke-linecap="round"/>
+  <text x="320" y="560" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="34" font-weight="700">Support</text>
+</svg>

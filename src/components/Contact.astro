@@ -1,0 +1,223 @@
+<section class="contact" id="contact">
+  <div class="cta-glow" aria-hidden="true"></div>
+  <div class="container contact-grid">
+    <div class="contact-copy" data-reveal>
+      <p class="cta-kicker">Contact</p>
+      <h2>まずは無料でご相談ください</h2>
+      <p class="lede">アイデア段階でも構いません。お気軽にご相談ください。</p>
+      <p class="note">内容を確認し、通常2営業日以内にご連絡します。</p>
+    </div>
+
+    <div class="form-wrap" id="form" data-reveal style="--delay:80ms">
+      <form class="form" data-contact-form>
+        <div class="row">
+          <label>
+            <span class="lbl">お名前<span class="req">必須</span></span>
+            <input name="name" type="text" autocomplete="name" required />
+          </label>
+          <label>
+            <span class="lbl">会社名</span>
+            <input name="company" type="text" autocomplete="organization" />
+          </label>
+        </div>
+        <label>
+          <span class="lbl">メールアドレス<span class="req">必須</span></span>
+          <input name="email" type="email" autocomplete="email" required />
+        </label>
+        <label>
+          <span class="lbl">ご相談の種類</span>
+          <select name="type">
+            <option>Webアプリ</option>
+            <option>Webサイト</option>
+            <option>スマホアプリ</option>
+            <option>API開発</option>
+            <option>既存システムの改修</option>
+            <option>まだ決まっていない</option>
+          </select>
+        </label>
+        <label>
+          <span class="lbl">相談内容<span class="req">必須</span></span>
+          <textarea name="message" rows="5" required placeholder="今困っていること、作りたいもののイメージなど"></textarea>
+        </label>
+        <p class="error">お名前・メール・内容を入力してください。</p>
+        <button class="btn btn-primary" type="submit">送信する</button>
+      </form>
+      <div class="success" data-form-success hidden>
+        <h3>受け取りました</h3>
+        <p>内容を確認し、通常2営業日以内にご連絡します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    position: relative;
+    background: linear-gradient(135deg, #1a1f2c 0%, #242c40 100%);
+    color: #fff;
+    padding: 80px 0;
+    overflow: hidden;
+    scroll-margin-top: calc(var(--header-h) + 16px);
+  }
+
+  .cta-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(480px 260px at 85% 20%, rgba(107, 140, 255, 0.22), transparent 65%),
+      radial-gradient(360px 220px at 8% 90%, rgba(107, 140, 255, 0.12), transparent 60%);
+  }
+
+  .contact-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    gap: 56px;
+    align-items: start;
+  }
+
+  .cta-kicker {
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: clamp(1.45rem, 2.6vw, 1.9rem);
+    font-weight: 800;
+    letter-spacing: 0.015em;
+    line-height: 1.45;
+  }
+
+  .lede {
+    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.98rem;
+  }
+
+  .note {
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+  }
+
+  .contact-copy {
+    padding-top: 12px;
+  }
+
+  .form-wrap {
+    min-width: 0;
+  }
+
+  .form,
+  .success {
+    display: grid;
+    gap: 18px;
+    padding: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    background: #fff;
+    color: var(--text);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .form[hidden],
+  .success[hidden] {
+    display: none;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  label {
+    display: grid;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .lbl {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .req {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 4px;
+    background: rgba(196, 92, 92, 0.1);
+    color: #c45c5c;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    background: var(--bg-soft);
+    padding: 13px 15px;
+    font-weight: 400;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(79, 116, 232, 0.14);
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  .error {
+    display: none;
+    margin: 0;
+    color: #c45c5c;
+    font-size: 13px;
+  }
+
+  .form.is-invalid .error {
+    display: block;
+  }
+
+  .success h3 {
+    font-size: 1.3rem;
+  }
+
+  .success p {
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  @media (max-width: 860px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .row {
+      grid-template-columns: 1fr;
+    }
+
+    .form,
+    .success {
+      padding: 26px 22px;
+    }
+  }
+</style>
